@@ -119,6 +119,9 @@ html {
 
 body {
   color: #212121;
+  --x:-1000;
+  --y:0;
+  --rotate:0;
 }
 body._lock {
   overflow: hidden;
@@ -297,28 +300,41 @@ body._lock {
     height: 12px;
     background-color: #EA2F2F;
     border-radius: 50%;
+    will-change: transform;
+    transform: translate(var(--x), var(--y));
+    transition: transform 100ms ease 0s;
   }
   #cursor__hover {
+    top: -1000px;
+    left: 0;
     z-index: 1000;
     pointer-events: none;
     position: fixed;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 12px;
+    height: 12px;
     background: url("../img/icons/cursor_hover.svg") center/cover no-repeat;
-    animation: cursor__hover 300ms forwards;
+    will-change: transform;
+    transform: translate(var(--x), var(--y)) scale(3.75);
+    transition: transform 100ms ease 0s;
   }
   #cursor__hover_white {
+    top: -1000px;
+    left: 0;
     z-index: 1000;
     pointer-events: none;
     position: fixed;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 12px;
+    height: 12px;
     background: url("../img/icons/cursor_hover_white.svg") center/cover no-repeat;
-    animation: cursor__hover 300ms forwards;
+    will-change: transform;
+    transform: translate(var(--x), var(--y)) scale(3.75);
+    transition: transform 100ms ease 0s;
   }
   #cursor__hover_white__cursor {
+    top: -1000px;
+    left: 0;
     z-index: 1000;
     pointer-events: none;
     position: fixed;
@@ -326,9 +342,13 @@ body._lock {
     width: 12px;
     height: 12px;
     background: #EA2F2F;
-    animation: cursor__hover__cursor 300ms forwards;
+    will-change: transform;
+    transform: translate(var(--x), var(--y)) scale(1);
+    transition: transform 100ms ease 0s;
   }
   #cursor__hover__cursor {
+    top: -1000px;
+    left: 0;
     z-index: 1000;
     border-radius: 50%;
     pointer-events: none;
@@ -336,19 +356,27 @@ body._lock {
     width: 12px;
     height: 12px;
     background: #EA2F2F;
-    animation: cursor__hover__cursor 300ms forwards;
+    will-change: transform;
+    transform: translate(var(--x), var(--y)) scale(1);
+    transition: transform 100ms ease 0s;
   }
   #cursor__video_hover {
+    top: -1000px;
+    left: 0;
     z-index: 1000;
     pointer-events: none;
     position: fixed;
     border-radius: 50%;
-    width: 117px;
-    height: 117px;
+    width: 12px;
+    height: 12px;
     background: url("../img/icons/cursor_video.svg") center/cover no-repeat;
-    animation: cursor__video_hover 300ms forwards;
+    will-change: transform;
+    transform: translate(var(--x), var(--y)) scale(10);
+    transition: transform 100ms ease 0s;
   }
   #cursor__video_hover__cursor, #cursor__slider_hover__cursor {
+    top: -1000px;
+    left: 0;
     z-index: 1000;
     pointer-events: none;
     position: fixed;
@@ -356,49 +384,23 @@ body._lock {
     width: 12px;
     height: 12px;
     background: #EA2F2F;
-    animation: cursor__video_hover__cursor 300ms forwards;
+    will-change: transform;
+    transform: translate(var(--x), var(--y)) scale(1);
+    transition: transform 100ms ease 0s;
   }
   #cursor__slider_hover {
+    top: -1000px;
+    left: 0;
     z-index: 1000;
     pointer-events: none;
     position: fixed;
     border-radius: 50%;
-    width: 117px;
-    height: 117px;
+    width: 12px;
+    height: 12px;
     background: url("../img/icons/cursor_slider.svg") center/cover no-repeat;
-    animation: cursor__video_hover 300ms forwards;
-  }
-}
-@keyframes cursor__hover {
-  0% {
-    transform: scale(0.2666);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes cursor__hover__cursor {
-  0% {
-    transform: scale(3.75);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes cursor__video_hover {
-  0% {
-    transform: scale(0.102);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes cursor__video_hover__cursor {
-  0% {
-    transform: scale(9.75);
-  }
-  100% {
-    transform: scale(1);
+    will-change: transform;
+    transform: translate(var(--x), var(--y)) scale(10);
+    transition: transform 100ms ease 0s;
   }
 }
 /*------------custom-select----*/
@@ -1072,14 +1074,55 @@ body.ie ._ibg img {
   z-index: 1000;
 }
 .header__icon {
-  position: absolute;
+  cursor: pointer;
+  position: relative;
   top: 148px;
+  left: 0;
+  width: 276px;
+  height: 82px;
+}
+@media (max-width: 1050px) {
+  .header__icon {
+    width: 173px;
+    height: 34px;
+    padding: 0;
+    top: 0;
+    left: 0;
+  }
+}
+.header__icon_logo {
+  position: absolute;
+  top: 0;
   left: 0;
   border: 1px solid #212121;
   border-radius: 196px;
   width: 276px;
   height: 82px;
   padding: 19px 25px 19px 24px;
+  transition: transform 100ms ease 0s;
+  z-index: -1;
+}
+@media (max-width: 1050px) {
+  .header__icon_logo {
+    border: none;
+    width: 173px;
+    height: 34px;
+    padding: 0;
+    border-radius: unset;
+    top: 0;
+    left: 0;
+  }
+}
+@media (min-width: 1050px) {
+  .header__icon_logo._active {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    will-change: transform;
+    transform: translate(var(--x), var(--y));
+    transition: transform 100ms ease 0s;
+    z-index: -1;
+  }
 }
 @media (max-width: 1050px) {
   .header__icon {
@@ -1615,6 +1658,8 @@ body.ie ._ibg img {
   padding-left: 306px;
 }
 .home_video__video .my_video_container {
+  width: 1194px;
+  height: 620px;
   position: relative;
 }
 .home_video__video .video_hover {
@@ -1624,6 +1669,9 @@ body.ie ._ibg img {
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .home_video__video .video_hover._active {
   position: absolute;
@@ -1632,6 +1680,14 @@ body.ie ._ibg img {
   z-index: 0;
   opacity: 1;
   transition: opacity 0.3s;
+}
+.home_video__video .my-div {
+  width: 100%;
+  height: 100%;
+}
+.home_video__video .my-div canvas {
+  width: 100% !important;
+  height: 100% !important;
 }
 .home_video_img {
   cursor: pointer;
@@ -1664,8 +1720,28 @@ body.ie ._ibg img {
     font-size: 80px;
     line-height: 90px;
   }
+  .home_video__video .my_video_container {
+    width: 955px;
+    height: 496px;
+    position: relative;
+  }
   .home_video__video img {
     width: 100%;
+  }
+}
+@media (max-width: 1250px) {
+  .home_video__video .my_video_container {
+    width: 100%;
+    height: 52%;
+    position: relative;
+  }
+  .home_video__video img {
+    width: 100%;
+  }
+  .home_video__arrow img {
+    margin-top: 20px;
+    position: static;
+    width: 150px;
   }
 }
 @media (max-width: 1050px) {
@@ -1919,11 +1995,21 @@ body.ie ._ibg img {
   top: 0;
   left: -20000px;
   z-index: 100;
+  width: 250px;
+  height: 300px;
+  opacity: 0;
+  will-change: transform;
+  transform: translate(var(--x), var(--y)) rotate(var(--rotate));
+}
+.our_works_string_hover1 #img .dop_img {
+  top: var(--x) px;
+  left: var(--y) px;
+  opacity: 0;
+  transform: scale(0.5);
 }
 .our_works_string_hover1 #img img {
   width: 250px;
   height: 300px;
-  object-fit: cover;
 }
 .our_works_string_hover {
   cursor: pointer;
@@ -2584,6 +2670,13 @@ body.ie ._ibg img {
 
   .header__icon.stomatology__header {
     top: 130px;
+    width: 199px;
+    height: 59px;
+    padding: 14px 18px 14px 17px;
+  }
+  .header__icon.stomatology__header .header__icon_logo {
+    top: 0;
+    left: 0;
     width: 199px;
     height: 59px;
     padding: 14px 18px 14px 17px;
