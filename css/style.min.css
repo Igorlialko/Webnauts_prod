@@ -121,6 +121,8 @@ body {
   color: #212121;
   --x:-1000;
   --y:0;
+  --rotate_x:0;
+  --rotate_y:0;
   --rotate:0;
 }
 body._lock {
@@ -1116,7 +1118,7 @@ body.ie ._ibg img {
 @media (min-width: 1050px) {
   .header__icon_logo._active {
     position: absolute;
-    top: 30px;
+    top: 0;
     left: 0;
     will-change: transform;
     transform: translate(var(--x), var(--y));
@@ -1990,24 +1992,32 @@ body.ie ._ibg img {
   position: relative;
   cursor: pointer;
 }
-.our_works_string_hover1 #img {
-  position: fixed;
-  top: 0;
-  left: -20000px;
-  z-index: 100;
+.our_works .img_container_rotate {
+  position: relative;
+}
+.our_works .img_container_rotate_img {
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+.our_works #img {
+  user-select: none;
+  position: absolute;
+  z-index: -100;
   width: 250px;
   height: 300px;
-  opacity: 0;
+  opacity: 1;
   will-change: transform;
-  transform: translate(var(--x), var(--y)) rotate(var(--rotate));
+  transform: translate(var(--rotate_x), var(--rotate_y)) rotate(var(--rotate));
 }
-.our_works_string_hover1 #img .dop_img {
-  top: var(--x) px;
-  left: var(--y) px;
+.our_works #img .dop_img {
+  top: 0;
+  left: 0;
   opacity: 0;
   transform: scale(0.5);
+  transition: all 500ms;
 }
-.our_works_string_hover1 #img img {
+.our_works #img img {
   width: 250px;
   height: 300px;
 }
@@ -2453,6 +2463,12 @@ body.ie ._ibg img {
   opacity: 1;
   margin-bottom: 150px;
 }
+.contact_us form::-webkit-scrollbar {
+  width: 0;
+}
+.contact_us form {
+  overflow: auto;
+}
 .contact_us form .input,
 .contact_us form .input_l {
   padding: 0;
@@ -2481,7 +2497,20 @@ body.ie ._ibg img {
   background: #EA2F2F;
 }
 .contact_us form .input_l {
-  height: 64px;
+  width: 100%;
+  height: 63px;
+  border-bottom: 1px solid #212121;
+}
+.contact_us form .input_l textarea {
+  padding: 20px 0 0;
+  margin-bottom: 10px;
+  resize: none;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #212121;
+  width: 100%;
+  height: 62px;
   border-bottom: 1px solid #212121;
 }
 .contact_us form input {
