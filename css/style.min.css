@@ -1511,7 +1511,7 @@ body.ie ._ibg img {
   color: #EA2F2F;
 }
 .footer__block2_tel {
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 .footer__block2_from {
   padding-top: 70px;
@@ -2114,12 +2114,15 @@ body.ie ._ibg img {
   will-change: transform;
   transform: translate(var(--rotate_x), var(--rotate_y)) rotate(var(--rotate));
 }
+.our_works #img._active {
+  transition: transform 300ms ease-out 0ms;
+}
 .our_works #img .dop_img {
   top: 0;
   left: 0;
   opacity: 0;
   transform: scale(0.5);
-  transition: all 500ms;
+  transition: all 500ms ease 200ms;
 }
 .our_works #img img {
   width: 250px;
