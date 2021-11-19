@@ -19,6 +19,7 @@
             }, H = new e.TextureLoader;
             H.crossOrigin = "";
             var E, W, V = H.load(o, L);
+            V.wrapS = V.wrapT = THREE.RepeatWrapping;
             if (V.magFilter = V.minFilter = e.LinearFilter, y) {
                 var M = function () {
                     requestAnimationFrame(M), w.render(x, F)
