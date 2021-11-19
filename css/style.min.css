@@ -119,11 +119,11 @@ html {
 
 body {
   color: #212121;
-  --x:-1000;
-  --y:0;
-  --rotate_x:0;
-  --rotate_y:0;
-  --rotate:0;
+  --x: -1000;
+  --y: 0;
+  --rotate_x: 0;
+  --rotate_y: 0;
+  --rotate: 0;
 }
 body._lock {
   overflow: hidden;
@@ -284,15 +284,19 @@ body._lock {
 .animation_transition_double_effect,
 .animation_transition_double_effect2,
 .animation_transition_double_effect3,
+.animation_transition_double_effect5,
 .animation_transition_double_effect4 {
   height: 360px;
   width: 276px;
 }
 
 /*--cursor-----*/
+body {
+  --scale: 1 ;
+}
+
 @media (min-width: 1050px) {
   #cursor {
-    box-shadow: 1px 1px 1px #EA2F2F;
     user-select: none;
     z-index: 1000;
     position: fixed;
@@ -301,11 +305,21 @@ body._lock {
     pointer-events: none;
     width: 12px;
     height: 12px;
-    background-color: #EA2F2F;
     border-radius: 50%;
     will-change: transform;
     transform: translate(var(--x), var(--y));
     transition: transform 100ms ease 0s;
+  }
+  #cursor:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #EA2F2F;
+    border-radius: 50%;
+    will-change: transform;
+    transform: scale(var(--scale));
+    transition: transform 600ms ease 0s;
   }
   #cursor__hover {
     top: -1000px;
@@ -316,10 +330,20 @@ body._lock {
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background: url("../img/icons/cursor_hover.svg") center/cover no-repeat;
     will-change: transform;
-    transform: translate(var(--x), var(--y)) scale(3.75);
+    transform: translate(var(--x), var(--y));
     transition: transform 100ms ease 0s;
+  }
+  #cursor__hover:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url("../img/icons/cursor_hover.svg") center/cover no-repeat;
+    border-radius: 50%;
+    will-change: transform;
+    transform: scale(var(--scale));
+    transition: transform 600ms ease 0s;
   }
   #cursor__hover_white {
     top: -1000px;
@@ -330,10 +354,20 @@ body._lock {
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background: url("../img/icons/cursor_hover_white.svg") center/cover no-repeat;
     will-change: transform;
-    transform: translate(var(--x), var(--y)) scale(3.75);
+    transform: translate(var(--x), var(--y));
     transition: transform 100ms ease 0s;
+  }
+  #cursor__hover_white:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url("../img/icons/cursor_hover_white.svg") center/cover no-repeat;
+    border-radius: 50%;
+    will-change: transform;
+    transform: scale(var(--scale));
+    transition: transform 600ms ease 0s;
   }
   #cursor__hover_white__cursor {
     top: -1000px;
@@ -344,10 +378,20 @@ body._lock {
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background: #EA2F2F;
     will-change: transform;
-    transform: translate(var(--x), var(--y)) scale(1);
+    transform: translate(var(--x), var(--y));
     transition: transform 100ms ease 0s;
+  }
+  #cursor__hover_white__cursor:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #EA2F2F;
+    border-radius: 50%;
+    will-change: transform;
+    transform: scale(var(--scale));
+    transition: transform 600ms ease 0s;
   }
   #cursor__hover__cursor {
     top: -1000px;
@@ -358,10 +402,20 @@ body._lock {
     position: fixed;
     width: 12px;
     height: 12px;
-    background: #EA2F2F;
     will-change: transform;
-    transform: translate(var(--x), var(--y)) scale(1);
+    transform: translate(var(--x), var(--y));
     transition: transform 100ms ease 0s;
+  }
+  #cursor__hover__cursor:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #EA2F2F;
+    border-radius: 50%;
+    will-change: transform;
+    transform: scale(var(--scale));
+    transition: transform 600ms ease 0s;
   }
   #cursor__video_hover {
     top: -1000px;
@@ -372,10 +426,20 @@ body._lock {
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background: url("../img/icons/cursor_video.svg") center/cover no-repeat;
     will-change: transform;
-    transform: translate(var(--x), var(--y)) scale(10);
+    transform: translate(var(--x), var(--y));
     transition: transform 100ms ease 0s;
+  }
+  #cursor__video_hover:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url("../img/icons/cursor_video.svg") center/cover no-repeat;
+    border-radius: 50%;
+    will-change: transform;
+    transform: scale(var(--scale));
+    transition: transform 600ms ease 0s;
   }
   #cursor__video_hover__cursor, #cursor__slider_hover__cursor {
     top: -1000px;
@@ -386,10 +450,20 @@ body._lock {
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background: #EA2F2F;
     will-change: transform;
-    transform: translate(var(--x), var(--y)) scale(1);
+    transform: translate(var(--x), var(--y));
     transition: transform 100ms ease 0s;
+  }
+  #cursor__video_hover__cursor:after, #cursor__slider_hover__cursor:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #EA2F2F;
+    border-radius: 50%;
+    will-change: transform;
+    transform: scale(var(--scale));
+    transition: transform 600ms ease 0s;
   }
   #cursor__slider_hover {
     top: -1000px;
@@ -400,10 +474,20 @@ body._lock {
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background: url("../img/icons/cursor_slider.svg") center/cover no-repeat;
     will-change: transform;
-    transform: translate(var(--x), var(--y)) scale(10);
+    transform: translate(var(--x), var(--y));
     transition: transform 100ms ease 0s;
+  }
+  #cursor__slider_hover:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url("../img/icons/cursor_slider.svg") center/cover no-repeat;
+    border-radius: 50%;
+    will-change: transform;
+    transform: scale(var(--scale));
+    transition: transform 600ms ease 0s;
   }
 }
 /*------------custom-select----*/
@@ -487,6 +571,26 @@ body._lock {
 }
 
 /*---end-custom-select--*/
+/*-----cirle-parallax---*/
+#circle_20 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #EA2F2F;
+  z-index: -1;
+}
+@media (min-width: 1050px) {
+  #circle_20._active {
+    will-change: transform;
+    transform: translate(var(--x), var(--y));
+    transition: transform 250ms ease 0s;
+    z-index: -1;
+  }
+}
+
 .wrapper {
   width: 100%;
   min-height: 100%;
@@ -1123,7 +1227,7 @@ body.ie ._ibg img {
     left: 0;
     will-change: transform;
     transform: translate(var(--x), var(--y));
-    transition: transform 100ms ease 0s;
+    transition: transform 250ms ease 0s;
     z-index: -1;
   }
 }
@@ -1155,15 +1259,14 @@ body.ie ._ibg img {
   margin-bottom: 88px;
   margin-right: 50px;
 }
-.header__language:after {
-  width: 20px;
-  height: 20px;
+.header__language_circle {
+  cursor: default;
   position: absolute;
   top: 0;
-  right: -50px;
-  content: "";
+  right: -70px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: #EA2F2F;
 }
 .header__language input[type=radio] {
   display: none;
@@ -1787,15 +1890,13 @@ body.ie ._ibg img {
   margin-top: 60px;
   border-top: 10px solid #212121;
 }
-.our_mission__body:before {
-  content: "";
+.our_mission__body__circle {
   position: absolute;
   top: 404px;
   left: 612px;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: #EA2F2F;
 }
 .our_mission__body_circles {
   position: relative;
@@ -1986,6 +2087,7 @@ body.ie ._ibg img {
 .our_works_string {
   padding: 15px 0 20px;
   height: 163px;
+  margin: -1px 0;
   border-top: 1px solid #212121;
   color: #212121;
 }
@@ -2006,6 +2108,7 @@ body.ie ._ibg img {
   position: absolute;
   z-index: -100;
   width: 250px;
+  top: 300px;
   height: 300px;
   opacity: 1;
   will-change: transform;
@@ -2211,10 +2314,9 @@ body.ie ._ibg img {
 .home_slider_title_after {
   position: absolute;
   bottom: -60px;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: #EA2F2F;
 }
 .home_slider ._active_slide {
   position: absolute;
@@ -2353,15 +2455,13 @@ body.ie ._ibg img {
   padding-left: 612px;
   margin-bottom: 250px;
 }
-.contact_us__body:before {
-  content: "";
+.contact_us__body__before {
   position: absolute;
   bottom: 0;
   left: 306px;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: #EA2F2F;
 }
 .contact_us_tel {
   position: absolute;
