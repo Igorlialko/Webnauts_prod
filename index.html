@@ -26,27 +26,36 @@
 			</a>
 			<div class="header__menu menu__body ">
 				<form class="header__language a">
-					<div class=" header_input_3d">
-						<input type="radio" id="radio1"
-							   name="contact" value=" ">
-						<label for="radio1" class="">
-							UKR
-						</label>
+
+					<div class="border_bottom ">
+						<div class=" header_input_3d">
+							<a href="">
+								<div class="label">
+									UKR
+								</div>
+							</a>
+						</div>
 					</div>
-					<div class=" header_input_3d">
-						<input type="radio" id="radio2"
-							   name="contact" value=" ">
-						<label for="radio2" class="">
-							Ru
-						</label>
+
+					<div class="border_bottom">
+						<div class=" header_input_3d">
+							<a href="">
+								<div class="label">
+									Ru
+								</div>
+							</a>
+						</div>
 					</div>
-					<div class=" header_input_3d">
-						<input type="radio" id="radio3" checked
-							   name="contact" value=" ">
-						<label for="radio3" class="">
-							Eng
-						</label>
+					<div class="border_bottom _active">
+						<div class=" header_input_3d">
+							<a href="">
+								<div class="label">
+									Eng
+								</div>
+							</a>
+						</div>
 					</div>
+
 					<div class="header__language_circle circle_20 a " >
 						<div class="" id="circle_20" ></div>
 					</div>
@@ -635,6 +644,68 @@
 
 
 <script>
+    /*------Swiper---------*/
+
+    if (document.querySelector('.home_slider_swiper')) {
+
+        const swiper = new Swiper('.home_slider_swiper', {
+            // Install Plugin To Swiper
+            modules: [myPlugin],
+            //  spaceBetween: 30,
+            navigation: {
+                nextEl: '.swiper-button-next1',
+                prevEl: '.swiper-button-prev1',
+            },
+            // Enable debugger
+            debugger: true,
+        });
+
+        /*--------------*/
+//добавление к слайдеру первый слайд при мобилке
+        const slidefaef = document.querySelector('._active_slide')
+        const slidessascs = document.querySelector('.swiper-wrapper')
+        const cloneEl = slidefaef.cloneNode(true);
+
+        function addslide() {
+            if ((window.innerWidth < 1050) && (!cloneEl.classList.contains('_add_slide'))) {
+                cloneEl.classList.add('home_slider_swiper_slide', 'swiper-slide', '_add_slide')
+                cloneEl.classList.remove('_active_slide')
+                cloneEl.id = 'swiper-slide';
+                slidessascs.prepend(cloneEl)
+                swiper.update()
+                swiper.updateSize()
+                swiper.updateSlides()
+
+                new hoverEffect({
+                    parent: cloneEl.querySelector('.' + 'animation_transition_double_effect'),
+                    intensity: 0.1,
+                    imagesRatio: 360 / 276,
+                    image1: 'img/home_slider/0.jpg',
+                    image2: 'img/home_slider/1.jpg',
+                    displacementImage: 'img/4.png'
+                });
+            } else {
+                swiper.update()
+                swiper.updateSize()
+                swiper.updateSlides()
+            }
+        }
+
+        window.addEventListener('resize', (e) => {
+            addslide();
+        })
+        addslide();
+
+        new hoverEffect({
+            parent: document.querySelector('._active_slide').querySelector('.' + 'animation_transition_double_effect'),
+            intensity: 0.1,
+            imagesRatio: 360 / 276,
+            image1: 'img/home_slider/0.jpg',
+            image2: 'img/home_slider/1.jpg',
+            displacementImage: 'img/4.png'
+        });
+
+    }
     /*----------------animation_with_hover-effect---------------*/
     function animation_with_hover_effect(clas, delay, hight, width, image1, image2, displacementImage) {
         new hoverEffect({
@@ -647,17 +718,10 @@
             displacementImage: displacementImage,
         });
     }
-
+// для первого слайда сверху animation_transition_double_effect
     animation_with_hover_effect('my-div',
         0.1, 620, 1194,
         'img/video.jpg', 'img/video0.jpg', 'img/4.png');
-    //  console.log(new hoverEffect())
-    /*
-    сделал выше для клона слайда
-    animation_with_hover_effect('animation_transition_double_effect',
-        0.1, 360, 276,
-        'img/home_slider/0.jpg', 'img/home_slider/1.jpg','img/9.jpg');
-    */
 
     animation_with_hover_effect('animation_transition_double_effect2',
         0.1, 360, 276,
