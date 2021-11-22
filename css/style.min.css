@@ -2589,6 +2589,52 @@ body.ie ._ibg img {
   height: 183px;
   overflow: auto;
 }
+.contact_us form .validate2:before {
+  content: "Такого адреса не существует";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: 20px;
+  color: #EA2F2F;
+  z-index: 10000;
+  transform: translate(0, -50%);
+}
+.contact_us form .validate1:before {
+  content: "Некорректное Имя";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: 20px;
+  color: #EA2F2F;
+  z-index: 10000;
+  transform: translate(0, -50%);
+}
+.contact_us form .input.validate1 input,
+.contact_us form .input.validate2 input {
+  color: #EA2F2F;
+}
+.contact_us form .input.validate1 .input__border__top:before,
+.contact_us form .input.validate2 .input__border__top:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background: #EA2F2F;
+  animation: anim_width_border 1s ease forwards;
+  z-index: 10000;
+}
+.contact_us form .input.validate1 + .input .input__border__top:before,
+.contact_us form .input.validate2 + .input .input__border__top:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background: #EA2F2F;
+  animation: anim_width_border 1s ease forwards;
+  z-index: 10000;
+}
 .contact_us form .input {
   padding: 0;
   position: relative;
