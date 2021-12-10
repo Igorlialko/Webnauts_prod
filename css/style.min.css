@@ -44,8 +44,7 @@ section {
 
 html {
   font-size: 16px;
--ms-content-zooming: none;
--webkit-content-zooming:none;
+padding: 0 5vw;
 }
 html,
 body {
@@ -202,6 +201,7 @@ body._lock {
 /*--cursor-----*/
 body {
   --scale: 1 ;
+
 }
 
 @media (min-width: 1050px) {
@@ -701,7 +701,7 @@ body {
 
 ._container {
   max-width: 1530px;
-  padding: 0 5vw;
+  padding: 0 15px;
   margin: 0 auto;
 }
 @media (max-width: 1542px) {
