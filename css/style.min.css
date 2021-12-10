@@ -2351,6 +2351,9 @@ body.ie ._ibg img {
   }
 }
 @media (max-width: 1050px) {
+	.our_works .img_container_rotate_img {
+ display:none;
+}
   .our_works__body {
     position: static;
     min-height: 70px;
