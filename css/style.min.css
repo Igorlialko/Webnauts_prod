@@ -44,9 +44,11 @@ section {
 
 html {
   font-size: 16px;
-zoom:1;
-}
 
+}
+* {
+  -ms-content-zooming: none;
+}
 html,
 body {
   height: 100%;
